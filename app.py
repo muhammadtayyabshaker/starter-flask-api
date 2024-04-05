@@ -12,7 +12,7 @@ def detect_human():
         return jsonify({'error': 'No image provided'}), 400
     
     # Read the image
-    nparr = np.fromstring(image_file.read(), np.uint8)
+    nparr = np.frombuffer(image_file.read(), np.uint8)
     img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
     
     # Load pre-trained model for human detection
